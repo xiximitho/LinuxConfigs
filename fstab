@@ -1,0 +1,8 @@
+# /dev/sda2
+UUID=cf36b056-d011-4b26-8a3d-3d9d6d2eff3f	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda1
+UUID=2C20-0772      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# hdd com as porcarias sdb3 ext4
+UUID=b612f691-aaa1-487f-a206-493a293be1ac    /run/media/games   ext4               rw,relatime	0 1
