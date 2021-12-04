@@ -56,6 +56,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+#funcao para mostrar a branch do git
+
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 
 if [ "$color_prompt" = yes ]; then
     # override default virtualenv indicator in prompt
@@ -69,7 +75,7 @@ if [ "$color_prompt" = yes ]; then
 	info_color='\[\033[1;31m\]'
 	prompt_symbol=💀
     fi
-    PS1=$prompt_color'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')}('$info_color'\u${prompt_symbol}\h'$prompt_color')-[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└─'$info_color'\$\[\033[0m\] '
+    PS1=$prompt_color'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')}('$info_color'\u${prompt_symbol}\h'$prompt_color')-[\[\033[0;1m\]\w'$prompt_color']$(git_branch)\n'$prompt_color'└─'$info_color'\$\[\033[0m\] '
     # BackTrack red prompt
     #PS1='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
@@ -115,6 +121,17 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias sync="sudo pacman -Syyy"
+alias install="sudo pacman -S"
+alias update="sudo pacman -Syyu"
+alias search="sudo pacman -Ss"
+alias search-local="sudo pacman -Qs"
+alias pkg-info="sudo pacman -Qi"
+alias local-install="sudo pacman -U"
+alias clr-cache="sudo pacman -Scc"
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias remove="sudo pacman -R"
+alias autoremove="sudo pacman -Rns"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
