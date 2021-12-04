@@ -1,8 +1,11 @@
-# /dev/sda2
-UUID=cf36b056-d011-4b26-8a3d-3d9d6d2eff3f	/         	ext4      	rw,relatime	0 1
-
-# /dev/sda1
-UUID=2C20-0772      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
-
-# hdd com as porcarias sdb3 ext4
-UUID=b612f691-aaa1-487f-a206-493a293be1ac    /run/media/games   ext4               rw,relatime	0 1
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=F3E7-534A                            /boot/efi      vfat    umask=0077 0 2
+UUID=d2fc3b54-e741-4221-9be8-249980bb56ce /              ext4    defaults,noatime 0 1
+UUID=a37e3dd6-3b3e-4b46-ae48-930e3328f411 swap           swap    defaults,noatime 0 0
+tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
